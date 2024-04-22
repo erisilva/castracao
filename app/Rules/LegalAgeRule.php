@@ -28,7 +28,7 @@ class LegalAgeRule implements Rule
      */
     public function passes($attribute, $value)
     {
-        $formattedValue = new Carbon($value);
+        $formattedValue = Carbon::createFromFormat('d/m/Y', $value);
         $legalAge = Carbon::now()->subYears($this->legalAge);
         return $formattedValue < $legalAge;
     }

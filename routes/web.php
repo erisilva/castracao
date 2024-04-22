@@ -25,7 +25,13 @@ use App\Http\Controllers\HomeController;
 // })->name('about')->middleware('auth', 'verified');
 
 Route::get('/',  [HomeController::class, 'index'])->name('index');
+Route::get('/busca',  [HomeController::class, 'busca'])->name('busca');
+Route::get('/busca/exec', [HomeController::class, 'busca_exec'])->name('busca.exec');
 
+
+Route::get('/search/', [HomeController::class, 'search'])->name('search');
+
+Route::post('/pedido/store', [HomeController::class, 'store'])->name('pedidos.store');
 // # add 'register' => false to Auth::routes() to disable registration
 // Auth::routes(['verify' => true]);
 
