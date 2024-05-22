@@ -24,6 +24,8 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        \URL::forceRootUrl(\Config::get('app.url')); // for linux server
+
         $this->configureRateLimiting();
 
         $this->routes(function () {
